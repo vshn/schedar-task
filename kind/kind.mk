@@ -23,10 +23,10 @@ kind-setup-ingress: export KUBECONFIG = $(KIND_KUBECONFIG)
 kind-setup-ingress: kind-setup ## Install NGINX as ingress controller onto kind cluster (localhost:8088)
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-kind-load-image: export GOOS = linux
-kind-load-image: export GOARCH = amd64
-kind-load-image: kind-setup build-docker ## Load the container image onto kind cluster
-	@$(kind_bin) load docker-image --name $(KIND_CLUSTER) $(CONTAINER_IMG)
+kind-load-image: export GOOS=$(DOCKER_IMAGE_GOOS)
+kind-load-image: export GOARCH=$(DOCKER_IMAGE_GOARCH)
+kind-load-image: kind-setup docker-build ## Load the container image onto kind cluster
+	@$(kind_bin) load docker-image --name $(KIND_CLUSTER) $(GHCR_IMG)
 
 
 kind-clean: export KUBECONFIG = $(KIND_KUBECONFIG)

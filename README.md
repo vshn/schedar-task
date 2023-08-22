@@ -4,4 +4,4 @@
 
 # Schedar Task
 
-This repository helps recruit Schedar Engineers.
+This repository is meant for VSHN candidates that want to join VSHN Schedar Team

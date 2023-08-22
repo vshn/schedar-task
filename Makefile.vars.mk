@@ -11,10 +11,13 @@ PROJECT_ROOT_DIR = .
 PROJECT_NAME ?= schedar-task
 PROJECT_OWNER ?= vshn
 
-## BUILD:docker
-DOCKER_CMD ?= docker
+BIN_FILENAME ?= $(PROJECT_ROOT_DIR)/$(PROJECT_NAME)
 
-## KIND:setup
+DOCKER_IMAGE_GOOS = linux
+DOCKER_IMAGE_GOARCH = amd64
+
+IMG_TAG ?= v0.0.1
+GHCR_IMG ?= ghcr.io/vshn/schedar-task:$(IMG_TAG)
 
 # https://hub.docker.com/r/kindest/node/tags
 KIND_NODE_VERSION ?= v1.24.4
