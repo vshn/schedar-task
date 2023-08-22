@@ -16,7 +16,9 @@ type SimplePostgreSQL struct {
 }
 
 // SimplePostgreSQLSpec defines the desired state of a SimplePostgreSQL.
-type SimplePostgreSQLSpec struct{}
+type SimplePostgreSQLSpec struct {
+	//TODO implement me
+}
 
 // SimplePostgreSQLStatus defines the desired state of a SimplePostgreSQL.
 type SimplePostgreSQLStatus struct{}

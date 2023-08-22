@@ -3,6 +3,7 @@ package pkg
 import (
 	"context"
 	"fmt"
+	"github.com/vshn/appcat/v4/apis/stackgres/v1"
 	"github.com/vshn/schedar-task/api/v1alpha1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -18,8 +19,8 @@ type SimplePostgreSQLReconciler struct {
 
 func (s *SimplePostgreSQLReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error) {
 	//TODO implement me
-	fmt.Print("Test")
-	//panic("implement me")
+	sg := v1.SGCluster{}
+	fmt.Print(sg)
 	return reconcile.Result{}, nil
 }
 
