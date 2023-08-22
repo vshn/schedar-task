@@ -5,3 +5,32 @@
 # Schedar Task
 
 This repository is meant for VSHN candidates that want to join VSHN Schedar Team
+
+## Requirements
+* go (latest)
+* kubectl 
+* helm3
+* make
+* docker
+
+## Context
+The customer wants an easy way to deploy PostgreSQL instances using a single CustomResourceDefinition (CRD) in Kubernetes.
+There are a couple of Kubernetes Operators that can help us achieve this goal such as [Stackgres Operator](https://stackgres.io/).
+Once the Operator is installed in a cluster a PostgreSQL instance can be easily created with [SGCluster](https://stackgres.io/doc/1.1/reference/crd/sgcluster/#postgres) (CRD).
+There are other CRDs such as [SGInstanceProfile](https://stackgres.io/doc/1.1/reference/crd/sginstanceprofile/) or [SGPostgresConfig](https://stackgres.io/doc/1.1/reference/crd/sgpgconfig/) 
+which can further configure a PostgreSQL instance. Our goal is to abstract some of these CRDs into one single CRD (ex. API) of our own thus we need to create an Operator for that.
+The bootstrap of the Operator is already done, moreover the bare-bones of Operator itself can be already deployed in a Kind cluster using the following commands:
+
+* make install - installs a kind cluster and deploys the Stackgres Operator.
+* make deploy - builds and deploys the docker image in the cluster.
+
+## The Task
+
+1) Update the API (CRD) of this project so that the customer can issue a single resource to create a PostgreSQL instance. 
+The API should expose the most important attributes of your choice from [SGCluster](https://stackgres.io/doc/1.1/reference/crd/sgcluster/#postgres) object.
+Moreover, the customer should be able to specify the amount of CPU and Memory of the PostgreSQL instance. 
+2) Implement the [Reconciliation Loop](https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function) so that the PostgreSQL instance is created.
+The update operation is allowed but should not perform any changes.
+3) Resolve any issue that may arise during deployment.
+4) If you successfully deployed and implemented all the above steps, try to implement the delete operation.
+
