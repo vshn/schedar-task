@@ -22,15 +22,28 @@ which can further configure a PostgreSQL instance. Our goal is to abstract some 
 The bootstrap of the Operator is already done, moreover the bare-bones of Operator itself can be already deployed in a Kind cluster using the following commands:
 
 * make install - installs a kind cluster and deploys the Stackgres Operator.
+* make generate - generates CRDs.
 * make deploy - builds and deploys the docker image in the cluster.
 
 ## The Task
 
 1) Update the API (CRD) of this project so that the customer can issue a single resource to create a PostgreSQL instance. 
-The API should expose the most important attributes of your choice from [SGCluster](https://stackgres.io/doc/1.1/reference/crd/sgcluster/#postgres) object.
-Moreover, the customer should be able to specify the amount of CPU and Memory of the PostgreSQL instance. 
-2) Implement the [Reconciliation Loop](https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function) so that the PostgreSQL instance is created.
+The API should expose at least the attributes found in [Custom Resource](postgres.yaml) under _spec_. 
+2) Implement the [Reconciliation Loop](pkg/reconciler.go) so that the PostgreSQL instance is created (more details on [operator reconciliation](https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function)).
 The update operation is allowed but should not perform any changes.
 3) Resolve any issue that may arise during deployment.
 4) If you successfully deployed and implemented all the above steps, try to implement the delete operation.
+
+## Important links
+* https://stackgres.io/doc/latest/reference/crd/
+* https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function
+
+## Notes
+* Whenever a make deploy is issued, delete the current pod running in the cluster so that the latest changes apply.
+`kubectl -n schedar-task delete pod <pod name>`
+* Creating an SGCluster object requires:
+  * Number of instances `spec.instances`
+  * The storage capacity for the persistent volume `spec.pods.persistentvolume.size`
+  * The version of the postgres `spec.postgres.version`
+* Use the existing [CR](postgres.yaml) to try your operator.
 
