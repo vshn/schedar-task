@@ -1,0 +1,12 @@
+apiVersion: schedar.task.io/v1alpha1
+kind: SimplePostgreSQL
+metadata:
+  name: postgres-test
+  namespace: default
+spec:
+  instances: 1
+  version: "15"
+  storage: "5Gi"
+  pgSettings:
+    work_mem: 11MB
+
