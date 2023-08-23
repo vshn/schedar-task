@@ -13,14 +13,33 @@ import (
 
 // SimplePostgreSQLReconciler reconciles a VSHNPostgreSQL object
 type SimplePostgreSQLReconciler struct {
+	// Client Kubernetes client
 	client.Client
+
+	// Scheme for the client
 	Scheme *runtime.Scheme
 }
 
+// Reconcile reconciles the CRD after some time to make sure the resource is in correct state
 func (s *SimplePostgreSQLReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error) {
 	//TODO implement me
+	pg := v1alpha1.SimplePostgreSQL{}
+	c := v1.SGPostgresConfig{}
 	sg := v1.SGCluster{}
+
+	// Deletion
+	if !pg.DeletionTimestamp.IsZero() {
+		return reconcile.Result{}, nil
+	}
+
+	// Creation
+	if pg.Generation == 1 {
+
+	}
+
 	fmt.Print(sg)
+	fmt.Print(c)
+
 	return reconcile.Result{}, nil
 }
 
