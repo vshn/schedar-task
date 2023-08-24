@@ -39,6 +39,8 @@ The update operation is allowed but should not perform any changes.
 * https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function
 
 ## Notes
+* After installation use the following command to connect to the cluster:
+`kind get kubeconfig --name schedar-task > ~/.kube/config`
 * Whenever a make deploy is issued, delete the current pod running in the cluster so that the latest changes apply.
 `kubectl -n schedar-task delete pod <pod name>`
 * Creating an SGCluster object requires:
