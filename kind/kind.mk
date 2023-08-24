@@ -25,7 +25,7 @@ kind-setup-ingress: kind-setup ## Install NGINX as ingress controller onto kind 
 
 kind-load-image: export GOOS=$(DOCKER_IMAGE_GOOS)
 kind-load-image: export GOARCH=$(DOCKER_IMAGE_GOARCH)
-kind-load-image: kind stackgres docker-build ## Load the container image onto kind cluster
+kind-load-image: docker-build ## Load the container image onto kind cluster
 	@$(kind_bin) load docker-image --name $(KIND_CLUSTER) $(GHCR_IMG)
 
 
