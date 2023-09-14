@@ -20,7 +20,7 @@ install: kind stackgres ## Install kind with stackgres
 
 .PHONY: generate
 generate: ## Generates code for APIs and Custom Resource Definitions.
-	controller-gen paths=./api/... object crd:crdVersions=v1,allowDangerousTypes=true output:artifacts:config=./api/generated
+	go run sigs.k8s.io/controller-tools/cmd/controller-gen paths=./api/... object crd:crdVersions=v1,allowDangerousTypes=true output:artifacts:config=./api/generated
 
 .PHONY: deploy
 deploy: export KUBECONFIG = $(KIND_KUBECONFIG)
