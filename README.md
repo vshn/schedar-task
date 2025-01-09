@@ -8,16 +8,24 @@ This repository is meant for VSHN candidates that want to join VSHN Schedar Team
 
 ## Requirements
 * go (latest)
-* kubectl 
+* kubectl
 * helm3
 * make
 * docker
+
+**or**
+
+* docker
+* vscode for devcontainers
+
+Install docker and vscode and the devcontainer extension.
+Then open this repository in vscode and select `Reopen in devcontainer` from the command palette.
 
 ## Context
 The customer wants an easy way to deploy PostgreSQL instances using a single CustomResourceDefinition (CRD) in Kubernetes.
 There are a couple of Kubernetes Operators that can help us achieve this goal such as [Stackgres Operator](https://stackgres.io/).
 Once the Operator is installed in a cluster a PostgreSQL instance can be easily created with [SGCluster](https://stackgres.io/doc/1.1/reference/crd/sgcluster/#postgres) (CRD).
-There are other CRDs such as [SGInstanceProfile](https://stackgres.io/doc/1.1/reference/crd/sginstanceprofile/) or [SGPostgresConfig](https://stackgres.io/doc/1.1/reference/crd/sgpgconfig/) 
+There are other CRDs such as [SGInstanceProfile](https://stackgres.io/doc/1.1/reference/crd/sginstanceprofile/) or [SGPostgresConfig](https://stackgres.io/doc/1.1/reference/crd/sgpgconfig/)
 which can further configure a PostgreSQL instance. Our goal is to abstract some of these CRDs into one single CRD (ex. API) of our own thus we need to create an Operator for that.
 The bootstrap of the Operator is already done, moreover the bare-bones of Operator itself can be already deployed in a Kind cluster using the following commands:
 
@@ -27,8 +35,8 @@ The bootstrap of the Operator is already done, moreover the bare-bones of Operat
 
 ## The Task
 
-1) Update the API (CRD) of this project so that the customer can issue a single resource to create a PostgreSQL instance. 
-The API should expose at least the attributes found in [Custom Resource](postgres.yaml) under _spec_. 
+1) Update the API (CRD) of this project so that the customer can issue a single resource to create a PostgreSQL instance.
+The API should expose at least the attributes found in [Custom Resource](postgres.yaml) under _spec_.
 2) Implement the [Reconciliation Loop](pkg/reconciler.go) so that the PostgreSQL instance is created (more details on [operator reconciliation](https://kubebyexample.com/learning-paths/operator-framework/operator-sdk-go/controller-reconcile-function)).
 The update operation is allowed but should not perform any changes.
 3) Resolve any issue that may arise during deployment.
