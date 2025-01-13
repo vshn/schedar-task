@@ -7,6 +7,9 @@ spec:
   instances: 1
   version: "15"
   storage: "5Gi"
+  resources:
+    cpu: 250m
+    memory: 1Gi
   pgSettings:
     work_mem: 11MB
 

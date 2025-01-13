@@ -201,6 +201,8 @@ github.com/vshn/appcat/v4 v4.20.1 h1:BOd605upNNGzbnp0vr2pa3fCCtHjYdFOzgNNbrFJ9a8
 github.com/vshn/appcat/v4 v4.20.1/go.mod h1:QS/2kJkKZh56XDXKxDZM9wxcBX180K8GEs6n4obvUF4=
 github.com/vshn/appcat/v4 v4.119.1 h1:iYeU8O/RVytzE1fJ2uws21L+20N4pkI6KeSC4ohdkjs=
 github.com/vshn/appcat/v4 v4.119.1/go.mod h1:aek0hmGvXrA/rUusEA4Emij1n3mm9JzwKKOcW/o0SZg=
+github.com/vshn/appcat/v4 v4.120.3-0.20250113172738-cf4011e514bf h1:LsdrW3oODyjGSWDK5cQMVYJ2xpFvOYHrHWa/Vxmbc0s=
+github.com/vshn/appcat/v4 v4.120.3-0.20250113172738-cf4011e514bf/go.mod h1:aek0hmGvXrA/rUusEA4Emij1n3mm9JzwKKOcW/o0SZg=
 github.com/x448/float16 v0.8.4 h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM=
 github.com/x448/float16 v0.8.4/go.mod h1:14CWIYCyZA/cWjXOioeEpHeN/83MdbZDRQHoFcYsOfg=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=

@@ -7,7 +7,7 @@ toolchain go1.23.4
 replace github.com/deepmap/oapi-codegen => github.com/sljeff/oapi-codegen v1.5.1-0.20211207091501-bc20f55d338a
 
 require (
-	github.com/vshn/appcat/v4 v4.119.1
+	github.com/vshn/appcat/v4 v4.120.3-0.20250113172738-cf4011e514bf
 	k8s.io/apimachinery v0.32.0
 	k8s.io/client-go v0.32.0
 	sigs.k8s.io/controller-runtime v0.19.4

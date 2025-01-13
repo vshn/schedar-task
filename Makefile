@@ -35,7 +35,7 @@ clean: kind-clean ## Install kind
 
 .PHONY: build
 build: export CGO_ENABLED = 0
-build: generate  ## Build manager binary.
+build: ## Build manager binary.
 	@echo "GOOS=$$(go env GOOS) GOARCH=$$(go env GOARCH)"
 	go build -o $(BIN_FILENAME)
 

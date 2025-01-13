@@ -24,6 +24,7 @@ type SimplePostgreSQLReconciler struct {
 func (s *SimplePostgreSQLReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error) {
 	//TODO implement me
 	pg := v1alpha1.SimplePostgreSQL{}
+	i := v1.SGInstanceProfile{}
 	c := v1.SGPostgresConfig{}
 	sg := v1.SGCluster{}
 
@@ -38,6 +39,7 @@ func (s *SimplePostgreSQLReconciler) Reconcile(ctx context.Context, request reco
 	}
 
 	fmt.Print(sg)
+	fmt.Print(i)
 	fmt.Print(c)
 
 	return reconcile.Result{}, nil
