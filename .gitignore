@@ -24,4 +24,5 @@ Dockerfile.cross
 *.swo
 *~
 .work
-
+.kind/
+schedar-task

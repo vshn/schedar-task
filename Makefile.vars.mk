@@ -20,7 +20,7 @@ IMG_TAG ?= v0.0.1
 GHCR_IMG ?= ghcr.io/vshn/schedar-task:$(IMG_TAG)
 
 # https://hub.docker.com/r/kindest/node/tags
-KIND_NODE_VERSION ?= v1.24.4
+KIND_NODE_VERSION ?= v1.29.7
 KIND_IMAGE ?= docker.io/kindest/node:$(KIND_NODE_VERSION)
 KIND_CMD ?= go run sigs.k8s.io/kind
 KIND_KUBECONFIG ?= $(kind_dir)/kind-kubeconfig-$(KIND_NODE_VERSION)
